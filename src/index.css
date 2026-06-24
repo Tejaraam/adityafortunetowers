@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px; /* Base font size */
+  }
+  body {
+    @apply font-sans bg-gray-50 text-gray-900 text-lg; /* Increased base text size */
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading text-primary font-bold;
+  }
+}
+
+@layer components {
+  /* Removed glassmorphism, replaced with solid, high-contrast cards */
+  .glass-card {
+    @apply bg-white border border-gray-200 shadow-md rounded-2xl;
+  }
+  /* Increased button padding, distinct borders */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 border-2 border-transparent text-lg font-bold rounded-lg shadow-md text-primary bg-accent hover:bg-accent-light focus:outline-none focus:ring-4 focus:ring-accent/50 transition-all duration-200;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-8 py-4 border-2 border-primary shadow-sm text-lg font-bold rounded-lg text-primary bg-white hover:bg-gray-50 focus:outline-none focus:ring-4 focus:ring-primary/50 transition-all duration-200;
+  }
+}
+
+@layer utilities {
+  @keyframes marquee {
+    0% { transform: translateX(100vw); }
+    100% { transform: translateX(-100%); }
+  }
+  .animate-marquee {
+    animation: marquee 25s linear infinite;
+  }
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-10%); }
+  }
+  .animate-ticker {
+    animation: ticker 15s linear infinite;
+  }
+  .pl-full {
+    padding-left: 100%;
+  }
+}
