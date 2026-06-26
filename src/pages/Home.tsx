@@ -156,7 +156,7 @@ export default function Home() {
                 Vizag is a beautiful place with the most promising future and Madhurawada is the most upcoming premium location in Vizag. Aditya Fortune Towers is a super luxury apartment project of a kind Vizag has probably not seen before.
               </p>
               <p className="text-gray-700 text-xl mb-8 leading-relaxed">
-                Offering 126 most modern luxury units—spacious, thoughtful and exquisite—designed to re-define the word "luxury".
+                Offering 162 most modern luxury units—spacious, thoughtful and exquisite—designed to re-define the word "luxury".
               </p>
               <div className="mb-8 bg-white p-6 rounded-xl shadow-sm border border-gray-200">
                 <h4 className="text-2xl font-bold text-primary mb-6 border-b border-gray-100 pb-2">Project Overview</h4>
