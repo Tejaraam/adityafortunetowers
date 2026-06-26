@@ -1,8 +1,9 @@
+import { useState } from 'react';
 import { Navigate, Outlet, Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../lib/AuthContext';
 import { 
   Building2, LayoutDashboard, Calendar, FileText, 
-  Users, Briefcase, Bell, Settings, LogOut, Phone
+  Users, Briefcase, Bell, Settings, LogOut, Phone, Menu, X
 } from 'lucide-react';
 
 const navigation = [
@@ -19,6 +20,7 @@ const navigation = [
 export default function AdminLayout() {
   const { session, loading, signOut } = useAuth();
   const location = useLocation();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   if (loading) {
     return <div className="min-h-screen flex items-center justify-center bg-gray-50"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div></div>;
@@ -29,12 +31,28 @@ export default function AdminLayout() {
   }
 
   return (
-    <div className="flex h-screen bg-gray-50 overflow-hidden">
+    <div className="flex h-screen bg-gray-50 overflow-hidden relative">
+      {/* Mobile Sidebar Overlay */}
+      {mobileMenuOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 z-40 md:hidden"
+          onClick={() => setMobileMenuOpen(false)}
+        />
+      )}
+
       {/* Sidebar */}
-      <div className="w-64 bg-primary text-white flex flex-col h-full flex-shrink-0">
-        <div className="h-16 flex items-center px-6 bg-primary-light">
-          <Building2 className="h-8 w-8 text-accent mr-3" />
-          <span className="font-heading font-bold text-xl">AFT Admin</span>
+      <div className={`
+        fixed inset-y-0 left-0 z-50 w-64 bg-primary text-white flex flex-col h-full flex-shrink-0 transition-transform duration-300 md:relative md:translate-x-0
+        ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}
+      `}>
+        <div className="h-16 flex items-center justify-between px-6 bg-primary-light">
+          <div className="flex items-center">
+            <Building2 className="h-8 w-8 text-accent mr-3" />
+            <span className="font-heading font-bold text-xl">AFT Admin</span>
+          </div>
+          <button className="md:hidden text-gray-300 hover:text-white" onClick={() => setMobileMenuOpen(false)}>
+            <X className="h-6 w-6" />
+          </button>
         </div>
         
         <div className="flex-1 overflow-y-auto py-4">
@@ -45,6 +63,7 @@ export default function AdminLayout() {
                 <Link
                   key={item.name}
                   to={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
                   className={`group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                     isActive ? 'bg-accent text-primary' : 'text-gray-300 hover:bg-primary-light hover:text-white'
                   }`}
@@ -76,11 +95,19 @@ export default function AdminLayout() {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col h-full overflow-hidden">
-        <header className="bg-white shadow-sm h-16 flex items-center justify-between px-8 border-b border-gray-200">
-          <h1 className="text-xl font-semibold text-gray-800">
-            {navigation.find(n => location.pathname.startsWith(n.href))?.name || 'Dashboard'}
-          </h1>
+      <div className="flex-1 flex flex-col h-full overflow-hidden w-full">
+        <header className="bg-white shadow-sm h-16 flex items-center justify-between px-4 md:px-8 border-b border-gray-200">
+          <div className="flex items-center gap-4">
+            <button 
+              className="md:hidden text-gray-600 hover:text-primary"
+              onClick={() => setMobileMenuOpen(true)}
+            >
+              <Menu className="h-6 w-6" />
+            </button>
+            <h1 className="text-xl font-semibold text-gray-800">
+              {navigation.find(n => location.pathname.startsWith(n.href))?.name || 'Dashboard'}
+            </h1>
+          </div>
           <div className="flex items-center gap-4">
             <span className="text-sm text-gray-500">Admin Session</span>
           </div>
