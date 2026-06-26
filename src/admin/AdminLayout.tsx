@@ -2,7 +2,7 @@ import { Navigate, Outlet, Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../lib/AuthContext';
 import { 
   Building2, LayoutDashboard, Calendar, FileText, 
-  Users, Briefcase, Bell, Settings, LogOut 
+  Users, Briefcase, Bell, Settings, LogOut, Phone
 } from 'lucide-react';
 
 const navigation = [
@@ -12,6 +12,7 @@ const navigation = [
   { name: 'Committee', href: '/admin/committee', icon: Users },
   { name: 'Contractors', href: '/admin/contractors', icon: Briefcase },
   { name: 'Announcements', href: '/admin/announcements', icon: Bell },
+  { name: 'Contacts', href: '/admin/contacts', icon: Phone },
   { name: 'Settings', href: '/admin/settings', icon: Settings },
 ];
 
