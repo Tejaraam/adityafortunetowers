@@ -20,9 +20,12 @@ import AdminContractors from './admin/AdminContractors';
 import AdminSettings from './admin/AdminSettings';
 import AdminAnnouncements from './admin/AdminAnnouncements';
 
+import ScrollToTop from './components/ScrollToTop';
+
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Toaster position="top-center" />
       <Routes>
         {/* Public Routes */}

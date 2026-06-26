@@ -160,40 +160,7 @@ export default function Contact() {
                   referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>
               </motion.div>
-              
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="bg-white rounded-2xl p-8 shadow-md border-2 border-gray-200"
-              >
-                <h3 className="text-2xl font-black text-primary mb-3">Send a Message</h3>
-                <p className="text-gray-600 mb-8 text-base">Please note that this is a public portal. For official complaints, please contact the office directly.</p>
-                
-                <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); alert('This is a static display portal. Messaging is not implemented as per specifications.'); }}>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                      <input type="text" id="name" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-shadow" placeholder="Your name" />
-                    </div>
-                    <div>
-                      <label htmlFor="flat" className="block text-sm font-medium text-gray-700 mb-1">Flat No. (Optional)</label>
-                      <input type="text" id="flat" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-shadow" placeholder="e.g. A-101" />
-                    </div>
-                  </div>
-                  <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
-                    <input type="text" id="subject" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-shadow" placeholder="What is this regarding?" />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                    <textarea id="message" rows={4} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-shadow resize-none" placeholder="Your message here..."></textarea>
-                  </div>
-                  <button type="submit" className="w-full bg-primary hover:bg-primary-light text-white font-bold py-3 px-6 rounded-lg transition-colors">
-                    Send Message
-                  </button>
-                </form>
-              </motion.div>
+
             </div>
             
           </div>
