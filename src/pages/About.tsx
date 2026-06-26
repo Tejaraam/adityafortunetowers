@@ -20,7 +20,7 @@ export default function About() {
           <h1 className="text-5xl md:text-6xl font-heading font-black text-white mb-6 drop-shadow-lg">About Aditya Fortune Towers</h1>
           <div className="w-20 h-2 bg-accent mx-auto rounded-full mb-8"></div>
           <p className="text-gray-100 text-xl font-medium max-w-3xl mx-auto px-4 leading-relaxed drop-shadow">
-            Vizag is a beautiful place with the most promising future and Madhurawada is the most upcoming premium location in Vizag. Aditya Fortune Towers is a super luxury apartment project of the kinds Vizag has probably not seen before.
+            Vizag is a beautiful place with the most promising future and Madhurawada is the most upcoming premium location in Vizag. Aditya Fortune Towers is a super luxury apartment project of a kind Vizag has probably not seen before.
           </p>
         </div>
       </div>
@@ -81,7 +81,7 @@ export default function About() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { icon: MapPin, title: 'Prime Location', desc: 'Located in Midhilapuri Vuda Colony, Madhurawada with excellent connectivity.' },
+              { icon: MapPin, title: 'Prime Location', desc: 'Located in Midhilapuri VUDA Colony, Madhurawada with excellent connectivity.' },
               { icon: Car, title: 'Multi-Level Parking', desc: '3-Level parking system with two car parking bays per apartment.' },
               { icon: Activity, title: 'Health & Fitness', desc: 'Fully equipped air-conditioned gymnasium for all your fitness needs.' },
               { icon: Compass, title: 'Vaastu Compliant', desc: 'Thoughtfully designed 100% Vaastu compliant spacious layouts.' },

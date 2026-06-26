@@ -153,7 +153,7 @@ export default function Home() {
             >
               <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">About Our Community</h2>
               <p className="text-gray-700 text-xl mb-6 leading-relaxed">
-                Vizag is a beautiful place with the most promising future and Madhurawada is the most upcoming premium location in Vizag. Aditya Fortune Towers is a super luxury apartment project of the kinds Vizag has probably not seen before.
+                Vizag is a beautiful place with the most promising future and Madhurawada is the most upcoming premium location in Vizag. Aditya Fortune Towers is a super luxury apartment project of a kind Vizag has probably not seen before.
               </p>
               <p className="text-gray-700 text-xl mb-8 leading-relaxed">
                 Offering 126 most modern luxury units—spacious, thoughtful and exquisite—designed to re-define the word "luxury".
@@ -161,9 +161,9 @@ export default function Home() {
               <div className="mb-8 bg-white p-6 rounded-xl shadow-sm border border-gray-200">
                 <h4 className="text-2xl font-bold text-primary mb-6 border-b border-gray-100 pb-2">Project Overview</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg">
-                  <div><span className="font-bold text-gray-900 block mb-1">Project Name:</span> Adityas Fortune Towers</div>
+                  <div><span className="font-bold text-gray-900 block mb-1">Project Name:</span> Aditya Fortune Towers</div>
                   <div><span className="font-bold text-gray-900 block mb-1">Location:</span> Madhurawada, Vizag</div>
-                  <div><span className="font-bold text-gray-900 block mb-1">Built Up Area:</span> 1640-1980 sft</div>
+                  <div><span className="font-bold text-gray-900 block mb-1">Built-up Area:</span> 1640-1980 sft</div>
                   <div><span className="font-bold text-gray-900 block mb-1">Bedrooms:</span> 3 BHK</div>
                 </div>
               </div>

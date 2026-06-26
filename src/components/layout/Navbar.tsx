@@ -20,8 +20,9 @@ export default function Navbar() {
   const location = useLocation();
 
   return (
-    <header className="fixed w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-200">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
+    <>
+      <header className="fixed w-full bg-white/80 backdrop-blur-md z-40 border-b border-gray-200">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link to="/" className="-m-1.5 p-1.5 flex items-center gap-2">
             <img src="/images/logo.png" alt="Aditya Construction Company" className="h-8 w-auto" />
@@ -73,6 +74,7 @@ export default function Navbar() {
           </Link>
         </div>
       </nav>
+      </header>
       
       <AnimatePresence>
         {mobileMenuOpen && (
@@ -127,6 +129,6 @@ export default function Navbar() {
         )}
       </AnimatePresence>
       <GlobalSearch isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
-    </header>
+    </>
   );
 }
