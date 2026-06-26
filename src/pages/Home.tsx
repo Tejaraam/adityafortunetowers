@@ -49,7 +49,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen relative z-0">
+    <div className="flex flex-col relative z-0">
       <div className="fixed inset-0 bg-[url('/images/aditya-fortune-towers.jpg')] bg-cover bg-center bg-no-repeat -z-20"></div>
       <div className="fixed inset-0 bg-gray-100/90 backdrop-blur-sm -z-10"></div>
       {/* Hero Section */}
@@ -198,7 +198,7 @@ export default function Home() {
       </section>
 
       {/* Latest Updates */}
-      <section className="pt-20 pb-8">
+      <section className="pt-20 pb-0 mb-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-end mb-12">
             <div>

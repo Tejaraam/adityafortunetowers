@@ -48,7 +48,7 @@ export default function EventDetails() {
 
   if (loading) {
     return (
-      <div className="flex flex-col min-h-screen bg-gray-50 items-center justify-center">
+      <div className="flex flex-col bg-gray-50 items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
       </div>
     );
@@ -56,7 +56,7 @@ export default function EventDetails() {
 
   if (!event) {
     return (
-      <div className="flex flex-col min-h-screen bg-gray-50 items-center justify-center p-4 text-center">
+      <div className="flex flex-col bg-gray-50 items-center justify-center p-4 text-center">
         <Calendar className="h-16 w-16 text-gray-300 mb-4" />
         <h2 className="text-2xl font-bold text-gray-900 mb-2">Event Not Found</h2>
         <p className="text-gray-500 mb-6">The event you are looking for does not exist or has been removed.</p>
@@ -68,7 +68,7 @@ export default function EventDetails() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50">
+    <div className="flex flex-col bg-gray-50">
       {/* Event Header */}
       <div className="relative bg-primary pt-24 pb-16 px-4 sm:px-6 lg:px-8 text-center overflow-hidden">
         {event.cover_image && (

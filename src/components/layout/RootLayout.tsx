@@ -6,7 +6,7 @@ export default function RootLayout() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="pt-16 w-full">
+      <main className="flex-grow pt-16 w-full">
         <Outlet />
       </main>
       <Footer />

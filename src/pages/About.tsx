@@ -10,7 +10,7 @@ const timelineData = [
 
 export default function About() {
   return (
-    <div className="flex flex-col min-h-screen relative z-0">
+    <div className="flex flex-col relative z-0">
       <div className="fixed inset-0 bg-[url('/images/about_building.jpg')] bg-cover bg-center bg-no-repeat -z-20"></div>
       <div className="fixed inset-0 bg-gray-100/90 backdrop-blur-sm -z-10"></div>
       {/* Hero Header */}
