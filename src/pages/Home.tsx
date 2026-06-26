@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Calendar, FileText, Bell, Users, Building, MapPin, Award, Zap, ExternalLink } from 'lucide-react';
+import { ArrowRight, Calendar, FileText, Bell, Users, Building, MapPin, Award, ExternalLink } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 
 export default function Home() {
   const [announcements, setAnnouncements] = useState<any[]>([]);
   const [featuredEvents, setFeaturedEvents] = useState<any[]>([]);
   const [featuredDocs, setFeaturedDocs] = useState<any[]>([]);
+  const [externalLinks, setExternalLinks] = useState<any[]>([]);
 
   useEffect(() => {
     const fetchFeatured = async () => {
@@ -32,9 +33,8 @@ export default function Home() {
         .limit(3);
 
       if (evData) setFeaturedEvents(evData);
-
       // Fetch featured documents
-      const { data: docData } = await supabase
+      const { data: docsData } = await supabase
         .from('documents')
         .select('*')
         .eq('is_featured', true)
@@ -42,11 +42,29 @@ export default function Home() {
         .order('document_date', { ascending: false })
         .limit(3);
 
-      if (docData) setFeaturedDocs(docData);
+      const { data: linksData } = await supabase
+        .from('external_links')
+        .select('*')
+        .eq('is_active', true)
+        .order('sort_order', { ascending: true });
+
+      if (annData) setAnnouncements(annData);
+      if (evData) setFeaturedEvents(evData);
+      if (docsData) setFeaturedDocs(docsData);
+      if (linksData) setExternalLinks(linksData);
     };
 
     fetchFeatured();
   }, []);
+
+  const getFaviconUrl = (url: string) => {
+    try {
+      const domain = new URL(url).hostname;
+      return `https://www.google.com/s2/favicons?domain=${domain}&sz=64`;
+    } catch {
+      return '';
+    }
+  };
 
   return (
     <div className="flex flex-col relative z-0">
@@ -198,51 +216,40 @@ export default function Home() {
       </section>
 
       {/* Resident Services */}
-      <section className="py-20 bg-gray-50 border-y border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-heading font-black text-primary mb-4">Utility & Tax Services</h2>
-            <div className="w-16 h-1 bg-accent mx-auto rounded-full mb-6"></div>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">Quick access to essential external payment portals for your convenience.</p>
+      {externalLinks.length > 0 && (
+        <section className="py-20 bg-gray-50 border-y border-gray-200">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-heading font-black text-primary mb-4">Utility & Tax Services</h2>
+              <div className="w-16 h-1 bg-accent mx-auto rounded-full mb-6"></div>
+              <p className="text-gray-600 text-lg max-w-2xl mx-auto">Quick access to essential external payment portals for your convenience.</p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {externalLinks.map(link => (
+                <a 
+                  key={link.id}
+                  href={link.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 hover:shadow-xl hover:border-accent transition-all group flex flex-col items-center text-center"
+                >
+                  <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform overflow-hidden p-3 border border-blue-100">
+                    <img src={getFaviconUrl(link.url)} alt="" className="w-full h-full object-contain" onError={(e) => {
+                      (e.target as HTMLImageElement).src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMTAgMTN2MWwyLTJtMyAybC0yLTJtLTIgMmwyLTIiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjwvc3ZnPg=='; // fallback generic icon
+                    }} />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">{link.title}</h3>
+                  <p className="text-gray-600 mb-6 flex-grow">{link.description}</p>
+                  <span className="flex items-center text-accent font-bold group-hover:underline">
+                    Access Portal <ExternalLink className="ml-2 h-4 w-4" />
+                  </span>
+                </a>
+              ))}
+            </div>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* APEPDCL Card */}
-            <a 
-              href="https://www.apeasternpower.com/payWithoutLogin" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 hover:shadow-xl hover:border-accent transition-all group flex flex-col items-center text-center"
-            >
-              <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <Zap className="h-8 w-8" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">APEPDCL Bill Pay</h3>
-              <p className="text-gray-600 mb-6 flex-grow">Pay your Eastern Power electricity bills quickly and securely online.</p>
-              <span className="flex items-center text-accent font-bold group-hover:underline">
-                Pay Electricity Bill <ExternalLink className="ml-2 h-4 w-4" />
-              </span>
-            </a>
-
-            {/* Property Tax Card */}
-            <a 
-              href="https://visakhapatnam.emunicipal.ap.gov.in/ptis/citizen/search/unified-searchForm.action#no-back-button" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 hover:shadow-xl hover:border-accent transition-all group flex flex-col items-center text-center"
-            >
-              <div className="w-16 h-16 bg-green-50 text-green-600 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <Building className="h-8 w-8" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">GVMC Property Tax</h3>
-              <p className="text-gray-600 mb-6 flex-grow">Search and pay your Greater Visakhapatnam Municipal Corporation property tax.</p>
-              <span className="flex items-center text-accent font-bold group-hover:underline">
-                Pay Property Tax <ExternalLink className="ml-2 h-4 w-4" />
-              </span>
-            </a>
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Latest Updates */}
       <section className="pt-20 pb-12">

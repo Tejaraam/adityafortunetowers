@@ -20,6 +20,7 @@ import AdminContractors from './admin/AdminContractors';
 import AdminSettings from './admin/AdminSettings';
 import AdminAnnouncements from './admin/AdminAnnouncements';
 import AdminContacts from './admin/AdminContacts';
+import AdminLinks from './admin/AdminLinks';
 
 import ScrollToTop from './components/ScrollToTop';
 
@@ -53,6 +54,7 @@ function App() {
           <Route path="contractors" element={<AdminContractors />} />
           <Route path="announcements" element={<AdminAnnouncements />} />
           <Route path="contacts" element={<AdminContacts />} />
+          <Route path="links" element={<AdminLinks />} />
           <Route path="settings" element={<AdminSettings />} />
         </Route>
       </Routes>
