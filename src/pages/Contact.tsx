@@ -80,7 +80,7 @@ export default function Contact() {
                     <div>
                       <h4 className="text-xl font-bold text-gray-900 mb-2">Phone</h4>
                       <a href={`tel:${settings?.phone}`} className="text-accent hover:text-accent-light font-bold text-lg transition-colors">
-                        {settings?.phone || '+91 00000 00000'}
+                        {settings?.phone || '+91 891 234 5678'}
                       </a>
                     </div>
                   </li>
@@ -91,7 +91,7 @@ export default function Contact() {
                     <div>
                       <h4 className="text-xl font-bold text-gray-900 mb-2">Email</h4>
                       <a href={`mailto:${settings?.email}`} className="text-accent hover:text-accent-light font-bold text-lg transition-colors">
-                        {settings?.email || 'contact@adityafortunetowers.com'}
+                        {settings?.email || 'association@adityafortunetowers.com'}
                       </a>
                     </div>
                   </li>
