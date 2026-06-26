@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Calendar, FileText, Bell, Users, Building, MapPin, Award } from 'lucide-react';
+import { ArrowRight, Calendar, FileText, Bell, Users, Building, MapPin, Award, Zap, ExternalLink } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 
 export default function Home() {
@@ -193,6 +193,53 @@ export default function Home() {
                 </div>
               </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Resident Services */}
+      <section className="py-20 bg-gray-50 border-y border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-heading font-black text-primary mb-4">Utility & Tax Services</h2>
+            <div className="w-16 h-1 bg-accent mx-auto rounded-full mb-6"></div>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">Quick access to essential external payment portals for your convenience.</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* APEPDCL Card */}
+            <a 
+              href="https://www.apeasternpower.com/payWithoutLogin" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 hover:shadow-xl hover:border-accent transition-all group flex flex-col items-center text-center"
+            >
+              <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <Zap className="h-8 w-8" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">APEPDCL Bill Pay</h3>
+              <p className="text-gray-600 mb-6 flex-grow">Pay your Eastern Power electricity bills quickly and securely online.</p>
+              <span className="flex items-center text-accent font-bold group-hover:underline">
+                Pay Electricity Bill <ExternalLink className="ml-2 h-4 w-4" />
+              </span>
+            </a>
+
+            {/* Property Tax Card */}
+            <a 
+              href="https://visakhapatnam.emunicipal.ap.gov.in/ptis/citizen/search/unified-searchForm.action#no-back-button" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 hover:shadow-xl hover:border-accent transition-all group flex flex-col items-center text-center"
+            >
+              <div className="w-16 h-16 bg-green-50 text-green-600 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <Building className="h-8 w-8" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">GVMC Property Tax</h3>
+              <p className="text-gray-600 mb-6 flex-grow">Search and pay your Greater Visakhapatnam Municipal Corporation property tax.</p>
+              <span className="flex items-center text-accent font-bold group-hover:underline">
+                Pay Property Tax <ExternalLink className="ml-2 h-4 w-4" />
+              </span>
+            </a>
           </div>
         </div>
       </section>
