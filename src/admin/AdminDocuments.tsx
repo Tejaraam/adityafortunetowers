@@ -210,7 +210,7 @@ export default function AdminDocuments() {
               <select value={formData.category} onChange={e => setFormData({...formData, category: e.target.value})} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent focus:ring-accent sm:text-sm p-2 border bg-white">
                 <option value="Association Documents">Association Documents</option>
                 <option value="Financial Reports">Financial Reports</option>
-                <option value="Meeting Minutes">Meeting Minutes</option>
+                <option value="Minutes of Meeting">Minutes of Meeting</option>
                 <option value="Guidelines">Guidelines</option>
               </select>
             </div>

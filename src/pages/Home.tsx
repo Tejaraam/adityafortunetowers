@@ -118,8 +118,8 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { icon: Building, title: 'Premium Towers', value: '3+', desc: 'Luxury Blocks' },
-              { icon: Users, title: 'Happy Families', value: '300+', desc: 'Vibrant Community' },
-              { icon: Award, title: 'Years of Excellence', value: '6+', desc: 'Est. 2018' },
+              { icon: Users, title: 'Happy Families', value: '162+', desc: 'Vibrant Community' },
+              { icon: Award, title: 'Years of Excellence', value: '8+', desc: 'Est. 2018' },
               { icon: MapPin, title: 'Prime Location', value: 'Madhurawada', desc: 'IT Hub Proximity' },
             ].map((stat, idx) => (
               <motion.div 
@@ -198,7 +198,7 @@ export default function Home() {
       </section>
 
       {/* Latest Updates */}
-      <section className="py-20">
+      <section className="pt-20 pb-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-end mb-12">
             <div>
