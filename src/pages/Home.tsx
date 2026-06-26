@@ -198,7 +198,7 @@ export default function Home() {
       </section>
 
       {/* Latest Updates */}
-      <section className="pt-20 pb-0 mb-0">
+      <section className="pt-20 pb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-end mb-12">
             <div>
