@@ -178,7 +178,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="relative rounded-2xl overflow-hidden shadow-2xl h-[400px] group"
             >
-              <div className="absolute inset-0 bg-[url('/images/community_amenities.png')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110"></div>
+              <div className="absolute inset-0 bg-[url('/images/community_amenities_upscaled.png')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110"></div>
               <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent flex flex-col justify-end p-8">
                 
                 <div className="flex flex-wrap gap-3 mb-6 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
